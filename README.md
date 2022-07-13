@@ -1,4 +1,4 @@
-# Bayesian occupancy modeling with acoustic data in spOccupancy 
+# Bayesian occupancy modeling with acoustic data in spOccupancy <a href='https://www.jeffdoser.com/files/spoccupancy-web/'><img src="man/figures/logo.png" align="right" height="139" width="120"/></a>
 
 ### [Jeffrey W. Doser](https://www.jeffdoser.com/)
 
