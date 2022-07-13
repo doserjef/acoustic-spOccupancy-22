@@ -11,7 +11,7 @@ library(spOccupancy)
 library(MCMCvis)
 library(sf)
 library(ggplot2)
-# Set working directory as necessary
+# Set working directory if necessary
 # setwd()
 
 # 1. Data prep ------------------------------------------------------------
@@ -56,6 +56,7 @@ out.sp <- spPGOcc(occ.formula = ~ scale(forest) + scale(agriculture) +
 		              n.neighbors = 15,
 		              cov.model = 'exponential',
 	                n.report = 100)
+summary(out.sp)
 
 # 3. Model validation -----------------------------------------------------
 # Perform a posterior predictive check to assess model fit. 
@@ -75,6 +76,8 @@ waicOcc(out.sp)
 # 5. Posterior summaries --------------------------------------------------
 # Concise summary of main parameter estimates
 summary(out)
+# Take a look at objects in resulting object
+names(out)
 # Create simple plot summaries using MCMCvis package.
 # Occupancy covariate effects ---------
 MCMCplot(out$beta.samples, ref_ovl = TRUE, ci = c(50, 95))
