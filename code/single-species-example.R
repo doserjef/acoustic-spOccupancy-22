@@ -52,9 +52,6 @@ out.sp <- spPGOcc(occ.formula = ~ scale(forest) + scale(agriculture) +
 	                n.thin = 5, 
 	                n.burn = 5000, 
 	                n.chains = 3,
-		              NNGP = TRUE,
-		              n.neighbors = 15,
-		              cov.model = 'exponential',
 	                n.report = 100)
 summary(out.sp)
 
@@ -78,6 +75,8 @@ waicOcc(out.sp)
 summary(out)
 # Take a look at objects in resulting object
 names(out)
+str(out$beta.samples)
+mean(out$beta.samples[, 5] > 0)
 # Create simple plot summaries using MCMCvis package.
 # Occupancy covariate effects ---------
 MCMCplot(out$beta.samples, ref_ovl = TRUE, ci = c(50, 95))
