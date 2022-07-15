@@ -25,7 +25,7 @@ str(data.list)
 sp.indx <- which(dimnames(data.list$y)[[1]] == 'sCROCAR')
 # Create copy of data list
 data.crocar <- data.list
-data.crocar$y <- data.crocar$y[22, , ]
+data.crocar$y <- data.crocar$y[sp.indx, , ]
 str(data.crocar)
 
 # 2. Model fitting --------------------------------------------------------
