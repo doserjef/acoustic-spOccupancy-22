@@ -76,6 +76,7 @@ summary(out)
 # Take a look at objects in resulting object
 names(out)
 str(out$beta.samples)
+# Probability the effect of slope on occupancy is positive
 mean(out$beta.samples[, 5] > 0)
 # Create simple plot summaries using MCMCvis package.
 # Occupancy covariate effects ---------
@@ -89,6 +90,7 @@ MCMCplot(out$alpha.samples, ref_ovl = TRUE, ci = c(50, 95))
 forest.pred.vals <- seq(min(data.list$occ.covs$forest), 
 			                  max(data.list$occ.covs$forest), 
 			                  length.out = 100)
+
 # Scale predicted values by mean and standard deviation used to fit the model
 forest.pred.vals.scale <- (forest.pred.vals - mean(data.list$occ.covs$forest)) / 
 	                         sd(data.list$occ.covs$forest)
